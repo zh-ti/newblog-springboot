@@ -1,4 +1,4 @@
-package com.tian.blog;
+package com.tian.blog.common;
 
 public enum StatusCode {
 

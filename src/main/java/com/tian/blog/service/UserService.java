@@ -8,6 +8,7 @@ import com.tian.blog.entity.User;
 import com.tian.blog.common.vo.PageVo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService extends IService<User> {
     Result<User> getUserById(String id);
@@ -15,6 +16,7 @@ public interface UserService extends IService<User> {
     Result<Integer> saveUser(User user);
     Result<Integer> updateUser(User user);
     Result<Integer> deleteUsers(List<String> idList);
-    Result<String> login(UserLoginDTO userLoginDTO);
-    Result<String> registry(UserRegistryDTO userRegistryDTO);
+    Result<Map<String, Object>> login(UserLoginDTO userLoginDTO);
+    Result<Map<String, Object>> registry(UserRegistryDTO userRegistryDTO);
+    Result<Boolean> logout(String id);
 }

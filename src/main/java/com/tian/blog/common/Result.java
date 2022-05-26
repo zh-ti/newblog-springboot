@@ -1,6 +1,5 @@
 package com.tian.blog.common;
 
-import com.tian.blog.StatusCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

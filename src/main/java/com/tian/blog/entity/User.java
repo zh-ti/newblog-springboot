@@ -8,13 +8,13 @@ import lombok.Data;
 @TableName("user")
 public class User {
     private String id;
-    private String name;
+    private String username;
     @JsonIgnore
     private String password;
-    private String nickname;
     private String avatar;
     private String email;
     private String phone;
+    private Integer type;
     private String address;
     private String createTime;
 }

@@ -3,9 +3,20 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tblog?characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT
     username: root
-    password: 986132
+    password: 123456
   application:
     name: tblog
+  redis:
+    host: 101.201.65.0
+    port: 6379
+    password: 986132
+    database: 1
+    lettuce:
+      pool:
+        max-active: 16
+        max-idle: 8
+        min-idle: 3
+        max-wait: 1000
 
 server:
   servlet:
@@ -16,4 +27,6 @@ mybatis-plus:
   configuration:
 #    控制台输出生成的 SQL 语句
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 

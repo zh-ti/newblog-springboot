@@ -23,11 +23,11 @@ public class UserController {
     @GetMapping
     public Result<PageVo<User>> userList(@RequestParam(value = "page", defaultValue = "1") Integer current,
                                          @RequestParam(value = "size", defaultValue = "10") Integer size,
-                                         @Nullable @RequestParam(value = "name") String name,
-                                         @Nullable @RequestParam(value = "phone") String phone,
-                                         @Nullable @RequestParam(value = "email") String email,
-                                         @Nullable @RequestParam(value = "address") String address) {
-        return userService.getUserList(current, size, name, phone, email, address);
+                                         @Nullable @RequestParam("username") String username,
+                                         @Nullable @RequestParam("phone") String phone,
+                                         @Nullable @RequestParam("email") String email,
+                                         @Nullable @RequestParam("address") String address) {
+        return userService.getUserList(current, size, username, phone, email, address);
     }
 
     @GetMapping("/{id}")
@@ -52,12 +52,17 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Result<String> login(@RequestBody UserLoginDTO userLoginDTO){
+    public Result<Map<String, Object>> login(@RequestBody UserLoginDTO userLoginDTO){
         return userService.login(userLoginDTO);
     }
 
     @PostMapping("/registry")
-    public Result<String> registry(@RequestBody UserRegistryDTO userRegistryDTO){
+    public Result<Map<String, Object>> registry(@RequestBody UserRegistryDTO userRegistryDTO){
         return userService.registry(userRegistryDTO);
+    }
+
+    @PostMapping("/logout")
+    public Result<Boolean> logout(@RequestBody Map<String, String> params){
+        return userService.logout(params.get("id"));
     }
 }

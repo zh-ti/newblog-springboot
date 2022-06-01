@@ -5,6 +5,7 @@ import com.tian.blog.common.Result;
 import com.tian.blog.utils.JWTUtils;
 import com.tian.blog.utils.RedisUtils;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -34,8 +35,8 @@ public class TokenHandlerInterceptor implements HandlerInterceptor {
         if (flag) {
             try {
                 claims = JWTUtils.parseJWT(token);
-            } catch (RuntimeException e) {
-                e.printStackTrace();
+            } catch (ExpiredJwtException e) {
+                log.error("JWT 已过期");
                 flag = false;
             }
         }

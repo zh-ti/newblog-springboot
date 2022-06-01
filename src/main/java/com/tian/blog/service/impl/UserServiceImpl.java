@@ -106,6 +106,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("loginUser: "+user);
         if (user != null) {
             return Result.success(getResponseOfLoginOrRegistry(user));
         }

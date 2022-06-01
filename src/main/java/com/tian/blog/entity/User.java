@@ -9,7 +9,7 @@ import lombok.Data;
 public class User {
     private String id;
     private String username;
-    @JsonIgnore
+    @JsonIgnore // 向前端响应时对象转JSON忽略密码
     private String password;
     private String avatar;
     private String email;
